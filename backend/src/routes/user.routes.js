@@ -14,7 +14,7 @@ router.get("/users/:id", async(req, res) =>{
     //Get specific user's details
 });
 
-router.post("/users", async(req, res) => {
+router.post("/users/user", async(req, res) => {
     //Create user
 });
 
@@ -22,7 +22,7 @@ router.patch("/users/:id", async(req,res) =>{
     //Update user details
 });
 
-router.delete("/users", async(req,res) =>{
+router.delete("/users/user", async(req,res) =>{
     //Deletes user
 })
 

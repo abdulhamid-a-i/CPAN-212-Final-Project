@@ -9,7 +9,7 @@ router.get("/", async(req,res) =>{
     //Lists books on online store
 });
 
-router.post("/cart", async(req, res) =>{
+router.post("/cart/:id", async(req, res) =>{
     // adding items to cart
 })
 
@@ -20,3 +20,6 @@ router.get("/checkout", async(req, res) =>{
 router.post("/checkout", async(req, res) =>{
     //Making a purchase on checkout page
 })
+
+router.delete("/cart/:id")
+    //deletes an item from the cart

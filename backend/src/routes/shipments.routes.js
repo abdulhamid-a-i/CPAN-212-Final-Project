@@ -17,7 +17,7 @@ router.get("/shipments/:id", async (req, res) =>{
     res.json(shipment);
 });
 
-router.post("/shipments", async (req, res) => {
+router.post("/shipments/shipment", async (req, res) => {
     const result = await validateCreateShipment(req.body);
     if (!result.ok){
         return res.status(400).json({error: result.errors})
@@ -31,5 +31,9 @@ router.post("/shipments", async (req, res) => {
 router.patch("/shipments/:id/qty", async (req, res) => {
   // bulk upload after processed to add quantity to books
 });
+
+router.delete("shipments/shipment", async (req, res) =>{
+  // deletes a shipment
+})
 
 export default router;
