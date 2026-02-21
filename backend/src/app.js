@@ -3,6 +3,9 @@ import cors from "cors";
 
 import booksRouter from "./routes/books.routes.js";
 import shipmentRouter from "./routes/shipments.routes.js";
+import authRouter from "./routes/authentication.routes.js";
+import userRouter from "./routes/user.routes.js";
+import indexRouter from "./routes/index.routes.js"
 
 
 const app = express();
@@ -17,6 +20,12 @@ app.get("/health", (req, res) => {
 app.use("/api/books", booksRouter);
 
 app.use("/api/shipments", shipmentRouter)
+
+app.use("/", indexRouter);
+
+app.use("/api/users", userRouter);
+
+app.use("/api/auth", authRouter);
 
 app.use((req, res) => {
   res.status(404).json({ error: "Route not found" });

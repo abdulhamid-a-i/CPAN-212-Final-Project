@@ -11,13 +11,13 @@ router.get("/books", async (req, res) => {
   res.json(await listAll());
 });
 
-router.get("/books/:id", async (req, res) =>{
+router.get("/:id", async (req, res) =>{
     const book = await findById(req.params.id);
     if (!book) return res.status(404).json({error: "Book not found"});
     res.json(book);
 });
 
-router.post("/books", async (req, res) => {
+router.post("/book", async (req, res) => {
     const result = await validateCreateBook(req.body);
     if (!result.ok){
         return res.status(400).json({error: result.errors})
@@ -27,7 +27,7 @@ router.post("/books", async (req, res) => {
     res.status(201).json(book);
 })
 
-router.patch("/books/:id/qty", async (req, res) => {
+router.patch("/:id/qty", async (req, res) => {
   const book = await findById(req.params.id);
   if (!book) return res.status(404).json({ error: "Book not found" });
 
@@ -38,11 +38,11 @@ router.patch("/books/:id/qty", async (req, res) => {
   res.json(updated);
 });
 
-router.post("/books/bulk-upload", upload.single("file"), async (req, res) => {
+router.post("/bulk-upload", upload.single("file"), async (req, res) => {
 // bulk upload of books using csv file.
 });
 
-router.delete("/books/:id", async (req,res) => {
+router.delete("/book/:id", async (req,res) => {
     // Delete book route
 })
 
